@@ -1,19 +1,66 @@
 import requests
 
 # Put your CENT Ischool IoT Portal API KEY here.
-APIKEY = "APIKEYHERE"
+APIKEY = "063ddfee53bc4e4c8c37addf"
 
 def get_google_place_details(google_place_id: str) -> dict:
-    pass # Implement this function
-    
+    url = "https://cent.ischool-iot.net/api/google/details"
+    headers = { "X-API-KEY": APIKEY }
+    params = { "place_id": google_place_id }
+    response = requests.get(url, headers=headers, params=params)
+    response.raise_for_status()
+    return response.json()
+
+
 def get_azure_sentiment(text: str) -> dict:
-    pass # Implement this function
+    url = "https://cent.ischool-iot.net/api/azure/text/analytics/sentiment"
+    headers = { "X-API-KEY": APIKEY }
+    data = {
+        "documents": [
+            {
+                "id": "1",
+                "language": "en",
+                "text": text
+            }
+        ]
+    }
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()
+    return response.json()
+
 
 def get_azure_key_phrase_extraction(text: str) -> dict:
-    pass # Implement this function
+    url = "https://cent.ischool-iot.net/api/azure/text/analytics/keyPhrases"
+    headers = { "X-API-KEY": APIKEY }
+    data = {
+        "documents": [
+            {
+                "id": "1",
+                "language": "en",
+                "text": text
+            }
+        ]
+    }
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()
+    return response.json()
+
 
 def get_azure_named_entity_recognition(text: str) -> dict:
-    pass # Implement this function
+    url = "https://cent.ischool-iot.net/api/azure/text/analytics/entities"
+    headers = { "X-API-KEY": APIKEY }
+    data = {
+        "documents": [
+            {
+                "id": "1",
+                "language": "en",
+                "text": text
+            }
+        ]
+    }
+    response = requests.post(url, headers=headers, json=data)
+    response.raise_for_status()
+    return response.json()
 
 
 def geocode(place:str) -> dict:

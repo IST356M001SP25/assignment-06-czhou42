@@ -23,3 +23,4 @@ Examples:
 
 `--- Reflection Below This Line ---`
 
+This assignment taught me how to build a multi-step ETL pipeline using APIs and caching. I learned how to separate each step—reviews, sentiment, and entity extraction—into modular functions that work with both files and dataframes. I struggled at first with parsing nested JSON responses from the APIs, especially extracting sentence-level sentiment and entities. I also ran into issues with 404 errors and outdated place IDs, which reminded me to validate inputs and API keys carefully. Going forward, I want to improve at handling complex JSON structures and writing more reusable code for data pipelines.
